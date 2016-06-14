@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.freedom.auction.R;
+
 public class TopFragment extends Fragment implements TopContract.View {
 
     private TopContract.Presenter mTopPresenter;
@@ -18,7 +20,10 @@ public class TopFragment extends Fragment implements TopContract.View {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+
+        View root = inflater.inflate(R.layout.fragment_top, container, false);
+
+        return root;
     }
 
     @Override
