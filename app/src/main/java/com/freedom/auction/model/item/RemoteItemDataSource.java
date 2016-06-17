@@ -18,13 +18,31 @@ public class RemoteItemDataSource implements ItemDataSource {
     }
 
     @Override
-    public void getAllItems(@NonNull String catalogId, @NonNull BaseListener listener) {
+    public void getCatalogs(@NonNull BaseListener listener) {
 
         // TODO
         String url = "";
 
-        new HttpGetAsyncTask<ItemRes>(listener, ItemRes.class).execute(url, catalogId);
+        new HttpGetAsyncTask<CatalogRes>(listener, CatalogRes.class).execute(url);
 
     }
 
+    @Override
+    public void getItemsByCatalogId(@NonNull String catalogId, @NonNull int start,
+                                    @NonNull int end, @NonNull BaseListener listener) {
+
+        // TODO
+        String url = "/items/catalog/" + catalogId + "/" + start + "/" + end;
+
+        new HttpGetAsyncTask<ItemRes>(listener, ItemRes.class).execute(url);
+
+    }
+
+    @Override
+    public void getItemDetail(@NonNull String itemId, @NonNull BaseListener listener) {
+        // TODO
+        String url = "/items/detail/" + itemId;
+
+        new HttpGetAsyncTask<ItemRes>(listener, ItemRes.class).execute(url);
+    }
 }

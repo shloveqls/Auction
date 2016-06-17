@@ -6,6 +6,11 @@ import com.freedom.auction.model.BaseListener;
 
 public interface ItemDataSource {
 
-    void getAllItems(@NonNull String catalogId, @NonNull BaseListener listener);
+    void getCatalogs(@NonNull BaseListener listener);
+
+    void getItemsByCatalogId(@NonNull String catalogId, @NonNull int start,
+                             @NonNull int end, @NonNull BaseListener listener);
+
+    void getItemDetail(@NonNull String itemId, @NonNull BaseListener listener);
 
 }

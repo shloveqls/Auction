@@ -2,18 +2,30 @@ package com.freedom.auction.model.item;
 
 public class Item {
 
-    private String mId;
+    private String mItemId;
+
+    private String mCatalogId;
 
     private String mName;
 
     private String mPrice;
 
-    public String getId() {
-        return mId;
+    private ItemDetail mItemDetail;
+
+    public String getItemId() {
+        return mItemId;
     }
 
-    public void setId(String id) {
-        this.mId = id;
+    public void setItemId(String itemId) {
+        this.mItemId = itemId;
+    }
+
+    public String getCatalogId() {
+        return mCatalogId;
+    }
+
+    public void setCatalogId(String catalogId) {
+        this.mCatalogId = catalogId;
     }
 
     public String getName() {
@@ -32,12 +44,22 @@ public class Item {
         this.mPrice = price;
     }
 
+    public ItemDetail getItemDetail() {
+        return mItemDetail;
+    }
+
+    public void setItemDetail(ItemDetail itemDetail) {
+        this.mItemDetail = itemDetail;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
-                "id='" + mId + '\'' +
-                ", name='" + mName + '\'' +
-                ", price='" + mPrice + '\'' +
+                "mItemId='" + mItemId + '\'' +
+                ", mCatalogId='" + mCatalogId + '\'' +
+                ", mName='" + mName + '\'' +
+                ", mPrice='" + mPrice + '\'' +
+                ", mItemDetail=" + mItemDetail +
                 '}';
     }
 }

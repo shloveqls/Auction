@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <!-- AppBar -->
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_top"
         android:layout_width="match_parent"
@@ -17,34 +18,28 @@
             android:id="@+id/toolbar_layout_top"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
             android:fitsSystemWindows="true"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|enterAlways">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_top"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout_top"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_gravity="bottom"
-                android:background="?attr/colorAccent"
-                app:tabGravity="fill"
-                app:tabMode="scrollable" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
+    <!-- Content -->
     <FrameLayout
         android:id="@+id/frame_top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <!-- FloatingActionButton -->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_top"
         android:layout_width="wrap_content"

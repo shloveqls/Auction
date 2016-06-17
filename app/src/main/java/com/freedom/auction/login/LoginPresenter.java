@@ -34,10 +34,10 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void login(EditText emailText, EditText passwordText) {
 
-        if (!validate(emailText, passwordText)) {
-            mLoginView.showFailedLogin();
-            return;
-        }
+//        if (!validate(emailText, passwordText)) {
+//            mLoginView.showFailedLogin();
+//            return;
+//        }
 
         mLoginView.setLoginButton(false);
         mLoginView.setLoadingIndicator(true);

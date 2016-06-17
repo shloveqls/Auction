@@ -22,11 +22,11 @@ public class RemoteUserDataSource implements UserDataSource {
                           @NonNull BaseListener listener) {
 
         // TODO
-        String url = "";
+        String url = "/users/auth";
         UserReq user = new UserReq("", email, password);
 
         // TODO change user object to json format
-        new HttpGetAsyncTask<UserRes>(listener, UserRes.class).execute(url, user.toString());
+        new HttpPostAsyncTask<UserRes>(listener, UserRes.class).execute(url, user.toString());
 
     }
 
@@ -34,7 +34,7 @@ public class RemoteUserDataSource implements UserDataSource {
                         @NonNull String password, @NonNull BaseListener listener) {
 
         // TODO
-        String url = "";
+        String url = "/users/new";
         UserReq user = new UserReq(name, email, password);
 
         // TODO change user object to json format
