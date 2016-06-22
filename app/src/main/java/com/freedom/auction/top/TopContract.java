@@ -16,6 +16,8 @@ public interface TopContract {
 
         void showCatalogs(List<Catalog> catalogList, Map<String, List<Item>> itemMap);
 
+        void showItemDetail(String itemId);
+
     }
 
     interface Presenter extends BasePresenter {

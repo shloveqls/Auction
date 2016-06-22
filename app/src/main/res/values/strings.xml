@@ -36,6 +36,4 @@
     <string name="password_error">between 4 and 10 alphanumeric characters</string>
     <string name="login_failed">Login failed</string>
     <string name="sign_up_failed">Sign up failed</string>
-
-    <string name="section_format">Hello World from section: %1$S</string>
 </resources>
