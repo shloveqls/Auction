@@ -90,13 +90,22 @@ public class TopFragment extends Fragment implements TopContract.View, ItemFragm
     }
 
     @Override
+    public void refreshItems(List<Item> itemList, ItemFragment itemFragment) {
+        itemFragment.refreshItems(itemList);
+    }
+
+    @Override
     public void showItemDetail(String itemId) {
-        //TODO
+        //TODO show Item Detail Activity
     }
 
     @Override
     public void onListFragmentInteraction(Item item) {
         showItemDetail(item.getItemId());
+    }
+
+    public void getItemsByCatalogId(String catalogId, ItemFragment itemFragment) {
+        mTopPresenter.getItemsByCatalogId(catalogId, itemFragment);
     }
 
     private void createProgressDialog() {

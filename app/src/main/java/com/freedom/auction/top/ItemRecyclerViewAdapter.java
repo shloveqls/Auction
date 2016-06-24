@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.freedom.auction.R;
@@ -18,11 +19,11 @@ import java.util.List;
  */
 public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Item> mItemList;
+    private List<Item> mItemList;
     private final OnListFragmentInteractionListener mListener;
 
     public ItemRecyclerViewAdapter(List<Item> itemList, OnListFragmentInteractionListener listener) {
-        mItemList = itemList;
+        setItemList(itemList);
         mListener = listener;
     }
 
@@ -35,7 +36,7 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mItemList.get(position);
-        holder.mIdView.setText(mItemList.get(position).getItemId());
+//        holder.mImageView.setImageURI(null);
         holder.mNameView.setText(mItemList.get(position).getName());
         holder.mPriceView.setText(mItemList.get(position).getPrice());
 
@@ -58,7 +59,7 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
+        public final ImageView mImageView;
         public final TextView mNameView;
         public final TextView mPriceView;
         public Item mItem;
@@ -66,9 +67,18 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_id);
-            mNameView = (TextView) view.findViewById(R.id.item_name);
-            mPriceView = (TextView) view.findViewById(R.id.item_price);
+            mImageView = (ImageView) view.findViewById(R.id.iv_item);
+            mNameView = (TextView) view.findViewById(R.id.tv_item_name);
+            mPriceView = (TextView) view.findViewById(R.id.tv_item_price);
         }
+    }
+
+    public void replaceData(List<Item> itemList) {
+        setItemList(itemList);
+        notifyDataSetChanged();
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.mItemList = itemList;
     }
 }

@@ -44,7 +44,8 @@ public class CatalogViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return ItemFragment.newInstance(2, mItemMap.get(mCatalogList.get(position).getCatalogId()));
+        String catalogId = mCatalogList.get(position).getCatalogId();
+        return ItemFragment.newInstance(2, catalogId, mItemMap.get(catalogId));
     }
 
     @Override

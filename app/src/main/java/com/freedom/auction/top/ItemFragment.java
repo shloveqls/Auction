@@ -3,6 +3,7 @@ package com.freedom.auction.top;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,7 +27,12 @@ public class ItemFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
 
+    private String mCatalogId;
     private List<Item> mItemList;
+
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+
+    private RecyclerView mRecyclerView;
 
     private ItemRecyclerViewAdapter mItemRecyclerViewAdapter;
 
@@ -37,8 +43,9 @@ public class ItemFragment extends Fragment {
     public ItemFragment() {
     }
 
-    public static ItemFragment newInstance(int columnCount, List<Item> itemList) {
+    public static ItemFragment newInstance(int columnCount, String catalogId, List<Item> itemList) {
         ItemFragment fragment = new ItemFragment();
+        fragment.setCatalogId(catalogId);
         fragment.setItemList(itemList);
 
         Bundle args = new Bundle();
@@ -57,21 +64,49 @@ public class ItemFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_top_detail, container, false);
+        View root = inflater.inflate(R.layout.fragment_top_detail, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+        Context context = root.getContext();
+        final TopFragment topFragment = (TopFragment) getParentFragment();
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) root;
+        // Setup refresh listener which triggers new data loading
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                topFragment.getItemsByCatalogId(mCatalogId, ItemFragment.this);
             }
-            mItemRecyclerViewAdapter = new ItemRecyclerViewAdapter(mItemList, (TopFragment) getParentFragment());
-            recyclerView.setAdapter(mItemRecyclerViewAdapter);
+        });
+        // Configure the refreshing colors
+        mSwipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
+        mRecyclerView = (RecyclerView) root.findViewById(R.id.recycler_view_top);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+        if (mColumnCount <= 1) {
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        } else {
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(context, mColumnCount);
+            mRecyclerView.setLayoutManager(gridLayoutManager);
         }
-        return view;
+        mItemRecyclerViewAdapter = new ItemRecyclerViewAdapter(mItemList, topFragment);
+        mRecyclerView.setAdapter(mItemRecyclerViewAdapter);
+
+        return root;
+    }
+
+    public void refreshItems(List<Item> itemList) {
+        mItemRecyclerViewAdapter.replaceData(itemList);
+        // Call setRefreshing(false) to signal refresh has finished
+        mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    public void setCatalogId(String catalogId) {
+        this.mCatalogId = catalogId;
     }
 
     public void setItemList(List<Item> itemList) {

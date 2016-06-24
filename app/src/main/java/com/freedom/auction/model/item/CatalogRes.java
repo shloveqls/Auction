@@ -132,7 +132,7 @@ public class CatalogRes extends Res {
 
     private static Map<String, List<Item>> createItemMapDummy() {
 
-        Map<String, List<Item>> listMap = new HashMap<>();
+        Map<String, List<Item>> itemListMap = new HashMap<>();
 
         int count = 30;
 
@@ -145,7 +145,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items1.add(item);
         }
-        listMap.put("1", items1);
+        itemListMap.put("1", items1);
 
         List<Item> items2 = new ArrayList<>();
         for (int i = count + 1; i <= count * 2; i++) {
@@ -156,7 +156,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items2.add(item);
         }
-        listMap.put("2", items2);
+        itemListMap.put("2", items2);
 
         List<Item> items3 = new ArrayList<>();
         for (int i = count * 2 + 1; i <= count * 3; i++) {
@@ -167,7 +167,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items3.add(item);
         }
-        listMap.put("3", items3);
+        itemListMap.put("3", items3);
 
         List<Item> items4 = new ArrayList<>();
         for (int i = count * 3 + 1; i <= count * 4; i++) {
@@ -178,7 +178,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items4.add(item);
         }
-        listMap.put("4", items4);
+        itemListMap.put("4", items4);
 
         List<Item> items5 = new ArrayList<>();
         for (int i = count * 4 + 1; i <= count * 5; i++) {
@@ -189,7 +189,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items5.add(item);
         }
-        listMap.put("5", items5);
+        itemListMap.put("5", items5);
 
         List<Item> items6 = new ArrayList<>();
         for (int i = count * 5 + 1; i <= count * 6; i++) {
@@ -200,7 +200,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items6.add(item);
         }
-        listMap.put("6", items6);
+        itemListMap.put("6", items6);
 
         List<Item> items7 = new ArrayList<>();
         for (int i = count * 6 + 1; i <= count * 7; i++) {
@@ -211,7 +211,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items7.add(item);
         }
-        listMap.put("7", items7);
+        itemListMap.put("7", items7);
 
         List<Item> items8 = new ArrayList<>();
         for (int i = count * 7 + 1; i <= count * 8; i++) {
@@ -222,7 +222,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items8.add(item);
         }
-        listMap.put("8", items8);
+        itemListMap.put("8", items8);
 
         List<Item> items9 = new ArrayList<>();
         for (int i = count * 8 + 1; i <= count * 9; i++) {
@@ -233,7 +233,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items9.add(item);
         }
-        listMap.put("9", items9);
+        itemListMap.put("9", items9);
 
         List<Item> items10 = new ArrayList<>();
         for (int i = count * 9 + 1; i <= count * 10; i++) {
@@ -244,7 +244,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items10.add(item);
         }
-        listMap.put("10", items10);
+        itemListMap.put("10", items10);
 
         List<Item> items11 = new ArrayList<>();
         for (int i = count * 10 + 1; i <= count * 11; i++) {
@@ -255,7 +255,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items11.add(item);
         }
-        listMap.put("11", items11);
+        itemListMap.put("11", items11);
 
         List<Item> items12 = new ArrayList<>();
         for (int i = count * 11 + 1; i <= count * 12; i++) {
@@ -266,7 +266,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items12.add(item);
         }
-        listMap.put("12", items12);
+        itemListMap.put("12", items12);
 
         List<Item> items13 = new ArrayList<>();
         for (int i = count * 12 + 1; i <= count * 13; i++) {
@@ -277,7 +277,7 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items13.add(item);
         }
-        listMap.put("13", items13);
+        itemListMap.put("13", items13);
 
         List<Item> items14 = new ArrayList<>();
         for (int i = count * 14 + 1; i <= count * 15; i++) {
@@ -288,9 +288,9 @@ public class CatalogRes extends Res {
             item.setPrice("¥" + i * 100);
             items14.add(item);
         }
-        listMap.put("14", items14);
+        itemListMap.put("14", items14);
 
-        return listMap;
+        return itemListMap;
     }
 
 }

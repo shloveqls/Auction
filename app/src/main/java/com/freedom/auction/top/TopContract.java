@@ -16,11 +16,15 @@ public interface TopContract {
 
         void showCatalogs(List<Catalog> catalogList, Map<String, List<Item>> itemMap);
 
+        void refreshItems(List<Item> itemList, ItemFragment itemFragment);
+
         void showItemDetail(String itemId);
 
     }
 
     interface Presenter extends BasePresenter {
+
+        void getItemsByCatalogId(String catalogId, ItemFragment itemFragment);
 
     }
 
