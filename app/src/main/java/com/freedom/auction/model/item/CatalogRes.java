@@ -1,5 +1,6 @@
 package com.freedom.auction.model.item;
 
+import com.freedom.auction.R;
 import com.freedom.auction.model.Res;
 
 import java.util.ArrayList;
@@ -134,7 +135,7 @@ public class CatalogRes extends Res {
 
         Map<String, List<Item>> itemListMap = new HashMap<>();
 
-        int count = 30;
+        int count = 36;
 
         List<Item> items1 = new ArrayList<>();
         for (int i = 1; i <= count; i++) {
@@ -142,7 +143,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("1");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items1.add(item);
         }
         itemListMap.put("1", items1);
@@ -153,7 +156,16 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("2");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            if (i % 2 == 0) {
+                itemDetail.setImageIcon(String.valueOf(R.drawable.ic_item_sample_1));
+            } else if (i % 3 == 0) {
+                itemDetail.setImageIcon(String.valueOf(R.drawable.ic_item_sample_2));
+            } else {
+                itemDetail.setImageIcon(String.valueOf(R.drawable.ic_item_sample_3));
+            }
+            item.setItemDetail(itemDetail);
             items2.add(item);
         }
         itemListMap.put("2", items2);
@@ -164,7 +176,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("3");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items3.add(item);
         }
         itemListMap.put("3", items3);
@@ -175,7 +189,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("4");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items4.add(item);
         }
         itemListMap.put("4", items4);
@@ -186,7 +202,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("5");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items5.add(item);
         }
         itemListMap.put("5", items5);
@@ -197,7 +215,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("6");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items6.add(item);
         }
         itemListMap.put("6", items6);
@@ -208,7 +228,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("7");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items7.add(item);
         }
         itemListMap.put("7", items7);
@@ -219,7 +241,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("8");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items8.add(item);
         }
         itemListMap.put("8", items8);
@@ -230,7 +254,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("9");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items9.add(item);
         }
         itemListMap.put("9", items9);
@@ -241,7 +267,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("10");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items10.add(item);
         }
         itemListMap.put("10", items10);
@@ -252,7 +280,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("11");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items11.add(item);
         }
         itemListMap.put("11", items11);
@@ -263,7 +293,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("12");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items12.add(item);
         }
         itemListMap.put("12", items12);
@@ -274,7 +306,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("13");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items13.add(item);
         }
         itemListMap.put("13", items13);
@@ -285,7 +319,9 @@ public class CatalogRes extends Res {
             item.setItemId(String.valueOf(i));
             item.setCatalogId("14");
             item.setName("Item" + i);
-            item.setPrice("¥" + i * 100);
+            ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setPrice("¥" + i * 100);
+            item.setItemDetail(itemDetail);
             items14.add(item);
         }
         itemListMap.put("14", items14);

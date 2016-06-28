@@ -16,7 +16,7 @@ public interface TopContract {
 
         void showCatalogs(List<Catalog> catalogList, Map<String, List<Item>> itemMap);
 
-        void refreshItems(List<Item> itemList, ItemFragment itemFragment);
+        void refreshItems(List<Item> itemList, ItemFragment itemFragment, boolean isSwipe);
 
         void showItemDetail(String itemId);
 
@@ -24,7 +24,7 @@ public interface TopContract {
 
     interface Presenter extends BasePresenter {
 
-        void getItemsByCatalogId(String catalogId, ItemFragment itemFragment);
+        void getItemsByCatalogId(String catalogId, int start, int end, ItemFragment itemFragment, boolean isSwipe);
 
     }
 

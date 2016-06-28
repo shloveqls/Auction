@@ -26,12 +26,13 @@ public class TopPresenter implements TopContract.Presenter {
     }
 
     @Override
-    public void getItemsByCatalogId(String catalogId, final ItemFragment itemFragment) {
-        mItemDataSource.getItemsByCatalogId(catalogId, 0, 30, new BaseListener<ItemRes>() {
+    public void getItemsByCatalogId(String catalogId, int start, int end,
+                                    final ItemFragment itemFragment, final boolean isSwipe) {
+        mItemDataSource.getItemsByCatalogId(catalogId, start, end, new BaseListener<ItemRes>() {
             @Override
             public void onResponse(ItemRes response) {
                 if (response.getResult()) {
-                    mTopView.refreshItems(response.getItemList(), itemFragment);
+                    mTopView.refreshItems(response.getItemList(), itemFragment, isSwipe);
                 }
             }
         });

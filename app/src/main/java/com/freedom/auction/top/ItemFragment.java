@@ -7,6 +7,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +75,7 @@ public class ItemFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                topFragment.getItemsByCatalogId(mCatalogId, ItemFragment.this);
+                topFragment.getItemsByCatalogId(mCatalogId, 0, 18, ItemFragment.this, true);
             }
         });
         // Configure the refreshing colors
@@ -88,10 +89,27 @@ public class ItemFragment extends Fragment {
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
         if (mColumnCount <= 1) {
-            mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+            mRecyclerView.setLayoutManager(linearLayoutManager);
+            mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+                @Override
+                public void onLoadMore(int page, int totalItemsCount) {
+                    // Triggered only when new data needs to be appended to the list
+                    // Add whatever code is needed to append new items to the bottom of the list
+                    loadMoreItems(page, totalItemsCount, topFragment);
+                }
+            });
         } else {
             GridLayoutManager gridLayoutManager = new GridLayoutManager(context, mColumnCount);
             mRecyclerView.setLayoutManager(gridLayoutManager);
+            mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(gridLayoutManager) {
+                @Override
+                public void onLoadMore(int page, int totalItemsCount) {
+                    // Triggered only when new data needs to be appended to the list
+                    // Add whatever code is needed to append new items to the bottom of the list
+                    loadMoreItems(page, totalItemsCount, topFragment);
+                }
+            });
         }
         mItemRecyclerViewAdapter = new ItemRecyclerViewAdapter(mItemList, topFragment);
         mRecyclerView.setAdapter(mItemRecyclerViewAdapter);
@@ -99,10 +117,25 @@ public class ItemFragment extends Fragment {
         return root;
     }
 
-    public void refreshItems(List<Item> itemList) {
-        mItemRecyclerViewAdapter.replaceData(itemList);
-        // Call setRefreshing(false) to signal refresh has finished
-        mSwipeRefreshLayout.setRefreshing(false);
+    public void refreshItems(List<Item> itemList, boolean isSwipe) {
+        mItemRecyclerViewAdapter.replaceData(itemList, isSwipe);
+        if (isSwipe) {
+            // Call setRefreshing(false) to signal refresh has finished
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+    }
+
+    // Append more data into the adapter
+    // This method probably sends out a network request and appends new data items to your adapter.
+    public void loadMoreItems(int page, int totalItemsCount, TopFragment topFragment) {
+        // Send an API request to retrieve appropriate data using the offset value as a parameter.
+        //  --> Deserialize API response and then construct new objects to append to the adapter
+        //  --> Notify the adapter of the changes
+        if (mCatalogId.equals("2")) {
+            Log.d("loadMoreItems", "page: " + page + "totalItemsCount: " + totalItemsCount);
+            topFragment.getItemsByCatalogId(mCatalogId, totalItemsCount + 1, 36, ItemFragment.this, false);
+
+        }
     }
 
     public void setCatalogId(String catalogId) {

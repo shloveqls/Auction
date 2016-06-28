@@ -27,6 +27,8 @@
     <string name="action_notification">Notification</string>
     <string name="action_done">Done</string>
 
+    <string name="item_image_icon">Item image icon</string>
+
     <!-- Dialog messages -->
     <string name="dialog_loading">Loading...</string>
 

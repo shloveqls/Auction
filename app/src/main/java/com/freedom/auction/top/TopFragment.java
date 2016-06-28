@@ -90,8 +90,8 @@ public class TopFragment extends Fragment implements TopContract.View, ItemFragm
     }
 
     @Override
-    public void refreshItems(List<Item> itemList, ItemFragment itemFragment) {
-        itemFragment.refreshItems(itemList);
+    public void refreshItems(List<Item> itemList, ItemFragment itemFragment, boolean isSwipe) {
+        itemFragment.refreshItems(itemList, isSwipe);
     }
 
     @Override
@@ -104,8 +104,9 @@ public class TopFragment extends Fragment implements TopContract.View, ItemFragm
         showItemDetail(item.getItemId());
     }
 
-    public void getItemsByCatalogId(String catalogId, ItemFragment itemFragment) {
-        mTopPresenter.getItemsByCatalogId(catalogId, itemFragment);
+    public void getItemsByCatalogId(String catalogId, int start, int end,
+                                    ItemFragment itemFragment, boolean isSwipe) {
+        mTopPresenter.getItemsByCatalogId(catalogId, start, end, itemFragment, isSwipe);
     }
 
     private void createProgressDialog() {

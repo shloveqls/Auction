@@ -1,6 +1,7 @@
 package com.freedom.auction.top;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,9 +37,12 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mItemList.get(position);
-//        holder.mImageView.setImageURI(null);
+        String imageIcon = mItemList.get(position).getItemDetail().getImageIcon();
+        if (!TextUtils.isEmpty(imageIcon)) {
+            holder.mImageView.setImageResource(Integer.valueOf(imageIcon));
+        }
         holder.mNameView.setText(mItemList.get(position).getName());
-        holder.mPriceView.setText(mItemList.get(position).getPrice());
+        holder.mPriceView.setText(mItemList.get(position).getItemDetail().getPrice());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,14 +71,18 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mImageView = (ImageView) view.findViewById(R.id.iv_item);
+            mImageView = (ImageView) view.findViewById(R.id.iv_item_icon);
             mNameView = (TextView) view.findViewById(R.id.tv_item_name);
             mPriceView = (TextView) view.findViewById(R.id.tv_item_price);
         }
     }
 
-    public void replaceData(List<Item> itemList) {
-        setItemList(itemList);
+    public void replaceData(List<Item> itemList, boolean isSwipe) {
+        if (isSwipe) {
+            setItemList(itemList);
+        } else {
+            mItemList.addAll(itemList);
+        }
         notifyDataSetChanged();
     }
 

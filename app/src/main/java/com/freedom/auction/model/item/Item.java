@@ -8,8 +8,6 @@ public class Item {
 
     private String mName;
 
-    private String mPrice;
-
     private ItemDetail mItemDetail;
 
     public String getItemId() {
@@ -36,14 +34,6 @@ public class Item {
         this.mName = name;
     }
 
-    public String getPrice() {
-        return mPrice;
-    }
-
-    public void setPrice(String price) {
-        this.mPrice = price;
-    }
-
     public ItemDetail getItemDetail() {
         return mItemDetail;
     }
@@ -58,7 +48,6 @@ public class Item {
                 "mItemId='" + mItemId + '\'' +
                 ", mCatalogId='" + mCatalogId + '\'' +
                 ", mName='" + mName + '\'' +
-                ", mPrice='" + mPrice + '\'' +
                 ", mItemDetail=" + mItemDetail +
                 '}';
     }
