@@ -19,7 +19,7 @@ public class RemoteUserDataSource implements UserDataSource {
     }
 
     public void checkUser(@NonNull String email, @NonNull String password,
-                          @NonNull BaseListener listener) {
+                          @NonNull BaseListener<UserRes> listener) {
 
         // TODO
         String url = "/users/auth";
@@ -31,7 +31,7 @@ public class RemoteUserDataSource implements UserDataSource {
     }
 
     public void addUser(@NonNull String name, @NonNull String email,
-                        @NonNull String password, @NonNull BaseListener listener) {
+                        @NonNull String password, @NonNull BaseListener<UserRes> listener) {
 
         // TODO
         String url = "/users/new";

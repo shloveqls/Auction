@@ -22,6 +22,13 @@ public class ActivityUtils {
         transaction.commit();
     }
 
+    public static void replaceFragment(@NonNull FragmentManager fragmentManager,
+                                       @NonNull Fragment fragment, int frameId) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(frameId, fragment);
+        transaction.commit();
+    }
+
     public static <T> T getResource(Context context, int resourceId, Class<T> cls) {
         T resource = null;
         if (cls.isAssignableFrom(String.class)) {

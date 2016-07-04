@@ -18,7 +18,7 @@ public class RemoteItemDataSource implements ItemDataSource {
     }
 
     @Override
-    public void getCatalogs(@NonNull BaseListener listener) {
+    public void getCatalogs(@NonNull BaseListener<CatalogRes> listener) {
 
         // TODO
         String url = "";
@@ -29,7 +29,7 @@ public class RemoteItemDataSource implements ItemDataSource {
 
     @Override
     public void getItemsByCatalogId(@NonNull String catalogId, @NonNull int start,
-                                    @NonNull int end, @NonNull BaseListener listener) {
+                                    @NonNull int end, @NonNull BaseListener<ItemRes> listener) {
 
         // TODO
         String url = "/items/catalog/" + catalogId + "/" + start + "/" + end;
@@ -39,7 +39,7 @@ public class RemoteItemDataSource implements ItemDataSource {
     }
 
     @Override
-    public void getItemDetail(@NonNull String itemId, @NonNull BaseListener listener) {
+    public void getItemDetail(@NonNull String itemId, @NonNull BaseListener<ItemRes> listener) {
         // TODO
         String url = "/items/detail/" + itemId;
 

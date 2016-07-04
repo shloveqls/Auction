@@ -13,7 +13,7 @@ public abstract class HttpAsyncTask<Params, Res> extends AsyncTask<Params, Void,
 
     private Class<Res> mClass;
 
-    public HttpAsyncTask(BaseListener listener, Class cls) {
+    public HttpAsyncTask(BaseListener<Res> listener, Class<Res> cls) {
         mListener = listener;
         mClass = cls;
     }

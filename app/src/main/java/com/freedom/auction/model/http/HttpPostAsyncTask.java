@@ -4,7 +4,7 @@ import com.freedom.auction.model.BaseListener;
 
 public class HttpPostAsyncTask<Res> extends HttpAsyncTask<String, Res> {
 
-    public HttpPostAsyncTask(BaseListener listener, Class cls) {
+    public HttpPostAsyncTask(BaseListener<Res> listener, Class<Res> cls) {
         super(listener, cls);
     }
 

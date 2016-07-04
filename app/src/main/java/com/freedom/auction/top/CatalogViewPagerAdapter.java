@@ -1,5 +1,6 @@
 package com.freedom.auction.top;
 
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -56,5 +57,10 @@ public class CatalogViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return mCatalogList.get(position).getName();
+    }
+
+    @Override
+    public Parcelable saveState() {
+        return null;
     }
 }

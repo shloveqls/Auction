@@ -17,6 +17,9 @@ import android.view.View;
 
 import com.freedom.auction.R;
 import com.freedom.auction.model.item.RemoteItemDataSource;
+import com.freedom.auction.model.news.RemoteNewsDataSource;
+import com.freedom.auction.news.NewsFragment;
+import com.freedom.auction.news.NewsPresenter;
 import com.freedom.auction.util.ActivityUtils;
 
 public class TopActivity extends AppCompatActivity {
@@ -24,6 +27,14 @@ public class TopActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private DrawerLayout mDrawerLayout;
+
+    private TopFragment mTopFragment;
+
+    private TopPresenter mTopPresenter;
+
+    private NewsFragment mNewsFragment;
+
+    private NewsPresenter mNewsPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,14 +66,16 @@ public class TopActivity extends AppCompatActivity {
             setNavigationItemSelectedListener(navigationView);
         }
 
-        TopFragment topFragment = (TopFragment) getSupportFragmentManager().findFragmentById(R.id.frame_top);
-        if (topFragment == null) {
-            topFragment = TopFragment.newInstance();
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), topFragment, R.id.frame_top);
+        if (mTopFragment == null) {
+            mTopFragment = TopFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), mTopFragment, R.id.frame_top);
+        } else {
+            ActivityUtils.replaceFragment(getSupportFragmentManager(), mTopFragment, R.id.frame_top);
         }
 
-        new TopPresenter(RemoteItemDataSource.getInstance(), topFragment);
-
+        if (mTopPresenter == null) {
+            mTopPresenter = new TopPresenter(RemoteItemDataSource.getInstance(), mTopFragment);
+        }
     }
 
     @Override
@@ -102,7 +115,7 @@ public class TopActivity extends AppCompatActivity {
     }
 
     private void setupFloatingButtonOnClickListener(FloatingActionButton floatingActionButton) {
-        // TODO
+        // TODO Start Camera
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,8 +137,22 @@ public class TopActivity extends AppCompatActivity {
 
                         switch (menuItem.getItemId()) {
                             case R.id.nav_menu_home:
+                                if (mTopFragment == null) {
+                                    mTopFragment = TopFragment.newInstance();
+                                }
+                                ActivityUtils.replaceFragment(getSupportFragmentManager(), mTopFragment, R.id.frame_top);
+                                if (mTopPresenter == null) {
+                                    mTopPresenter = new TopPresenter(RemoteItemDataSource.getInstance(), mTopFragment);
+                                }
                                 break;
                             case R.id.nav_menu_news:
+                                if (mNewsFragment == null) {
+                                    mNewsFragment = NewsFragment.newInstance();
+                                }
+                                ActivityUtils.replaceFragment(getSupportFragmentManager(), mNewsFragment, R.id.frame_top);
+                                if (mNewsPresenter == null) {
+                                    mNewsPresenter = new NewsPresenter(RemoteNewsDataSource.getInstance(), mNewsFragment);
+                                }
                                 break;
                             case R.id.nav_menu_favorites:
                                 break;

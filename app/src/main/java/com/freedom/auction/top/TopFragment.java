@@ -96,7 +96,7 @@ public class TopFragment extends Fragment implements TopContract.View, ItemFragm
 
     @Override
     public void showItemDetail(String itemId) {
-        //TODO show Item Detail Activity
+        //TODO show item detail activity
     }
 
     @Override
