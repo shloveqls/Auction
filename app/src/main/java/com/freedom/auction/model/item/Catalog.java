@@ -12,7 +12,7 @@ public class Catalog {
         return mCatalogId;
     }
 
-    public void setCatalogId(String catalogId) {
+    public void setPrimaryCatalogId(String catalogId) {
         this.mCatalogId = catalogId;
     }
 

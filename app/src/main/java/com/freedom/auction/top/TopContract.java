@@ -24,7 +24,7 @@ public interface TopContract {
 
     interface Presenter extends BasePresenter {
 
-        void getItemsByCatalogId(String catalogId, int start, int end, ItemFragment itemFragment, boolean isSwipe);
+        void getItemsByPrimaryCatalogId(String primaryCatalogId, int start, int end, ItemFragment itemFragment, boolean isSwipe);
 
     }
 

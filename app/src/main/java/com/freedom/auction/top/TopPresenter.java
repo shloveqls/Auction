@@ -26,9 +26,9 @@ public class TopPresenter implements TopContract.Presenter {
     }
 
     @Override
-    public void getItemsByCatalogId(String catalogId, int start, int end,
-                                    final ItemFragment itemFragment, final boolean isSwipe) {
-        mItemDataSource.getItemsByCatalogId(catalogId, start, end, new BaseListener<ItemRes>() {
+    public void getItemsByPrimaryCatalogId(String primaryCatalogId, int start, int end,
+                                           final ItemFragment itemFragment, final boolean isSwipe) {
+        mItemDataSource.getItemsByPrimaryCatalogId(primaryCatalogId, start, end, new BaseListener<ItemRes>() {
             @Override
             public void onResponse(ItemRes response) {
                 if (response.getResult()) {

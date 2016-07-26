@@ -28,7 +28,7 @@ public class ItemFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 2;
 
-    private String mCatalogId;
+    private String mPrimaryCatalogId;
     private List<Item> mItemList;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -46,7 +46,7 @@ public class ItemFragment extends Fragment {
 
     public static ItemFragment newInstance(int columnCount, String catalogId, List<Item> itemList) {
         ItemFragment fragment = new ItemFragment();
-        fragment.setCatalogId(catalogId);
+        fragment.setPrimaryCatalogId(catalogId);
         fragment.setItemList(itemList);
 
         Bundle args = new Bundle();
@@ -75,7 +75,7 @@ public class ItemFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                topFragment.getItemsByCatalogId(mCatalogId, 0, 18, ItemFragment.this, true);
+                topFragment.getItemsByPrimaryCatalogId(mPrimaryCatalogId, 0, 18, ItemFragment.this, true);
             }
         });
         // Configure the refreshing colors
@@ -131,15 +131,15 @@ public class ItemFragment extends Fragment {
         // Send an API request to retrieve appropriate data using the offset value as a parameter.
         //  --> Deserialize API response and then construct new objects to append to the adapter
         //  --> Notify the adapter of the changes
-        if (mCatalogId.equals("2")) {
+        if (mPrimaryCatalogId.equals("2")) {
             Log.d("loadMoreItems", "page: " + page + "totalItemsCount: " + totalItemsCount);
-            topFragment.getItemsByCatalogId(mCatalogId, totalItemsCount + 1, 36, ItemFragment.this, false);
+            topFragment.getItemsByPrimaryCatalogId(mPrimaryCatalogId, totalItemsCount + 1, 36, ItemFragment.this, false);
 
         }
     }
 
-    public void setCatalogId(String catalogId) {
-        this.mCatalogId = catalogId;
+    public void setPrimaryCatalogId(String primaryCatalogId) {
+        this.mPrimaryCatalogId = primaryCatalogId;
     }
 
     public void setItemList(List<Item> itemList) {

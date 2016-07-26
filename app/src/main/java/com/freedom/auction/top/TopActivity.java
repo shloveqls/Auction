@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +27,8 @@ public class TopActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
+
     private DrawerLayout mDrawerLayout;
 
     private TopFragment mTopFragment;
@@ -45,6 +48,8 @@ public class TopActivity extends AppCompatActivity {
         // Set up the toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_top);
         setSupportActionBar(toolbar);
+
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout_top);
 
         // Set up the drawer toggle
         mDrawerLayout = (DrawerLayout) findViewById(R.id.layout_top);
@@ -99,13 +104,15 @@ public class TopActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        // TODO
         switch (item.getItemId()) {
             case R.id.action_search_top:
+                // TODO
                 break;
             case R.id.action_notification_top:
+                // TODO
                 break;
             case R.id.action_done_top:
+                // TODO
                 break;
             default:
                 break;
@@ -129,7 +136,6 @@ public class TopActivity extends AppCompatActivity {
 
     private void setNavigationItemSelectedListener(NavigationView navigationView) {
         // Handle navigation view item clicks here.
-        // TODO
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -155,14 +161,19 @@ public class TopActivity extends AppCompatActivity {
                                 }
                                 break;
                             case R.id.nav_menu_favorites:
+                                // TODO
                                 break;
                             case R.id.nav_menu_sold_listings:
+                                // TODO
                                 break;
                             case R.id.nav_menu_purchased_listings:
+                                // TODO
                                 break;
                             case R.id.nav_menu_settings:
+                                // TODO
                                 break;
                             case R.id.nav_menu_guide:
+                                // TODO
                                 break;
                             default:
                                 break;

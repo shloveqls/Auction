@@ -96,7 +96,7 @@ public class TopFragment extends Fragment implements TopContract.View, ItemFragm
 
     @Override
     public void showItemDetail(String itemId) {
-        //TODO show item detail activity
+
     }
 
     @Override
@@ -104,9 +104,9 @@ public class TopFragment extends Fragment implements TopContract.View, ItemFragm
         showItemDetail(item.getItemId());
     }
 
-    public void getItemsByCatalogId(String catalogId, int start, int end,
+    public void getItemsByPrimaryCatalogId(String primaryCatalogId, int start, int end,
                                     ItemFragment itemFragment, boolean isSwipe) {
-        mTopPresenter.getItemsByCatalogId(catalogId, start, end, itemFragment, isSwipe);
+        mTopPresenter.getItemsByPrimaryCatalogId(primaryCatalogId, start, end, itemFragment, isSwipe);
     }
 
     private void createProgressDialog() {

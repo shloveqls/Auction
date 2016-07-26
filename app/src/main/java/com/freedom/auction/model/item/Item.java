@@ -4,9 +4,13 @@ public class Item {
 
     private String mItemId;
 
-    private String mCatalogId;
+    private String mExhibitorId;
 
-    private String mName;
+    private String mPrimaryCatalogId;
+
+    private String mSecondaryCatalogId;
+
+    private String mMinorCatalogId;
 
     private ItemDetail mItemDetail;
 
@@ -18,20 +22,36 @@ public class Item {
         this.mItemId = itemId;
     }
 
-    public String getCatalogId() {
-        return mCatalogId;
+    public String getExhibitorId() {
+        return mExhibitorId;
     }
 
-    public void setCatalogId(String catalogId) {
-        this.mCatalogId = catalogId;
+    public void setExhibitorId(String exhibitorId) {
+        this.mExhibitorId = exhibitorId;
     }
 
-    public String getName() {
-        return mName;
+    public String getPrimaryCatalogId() {
+        return mPrimaryCatalogId;
     }
 
-    public void setName(String name) {
-        this.mName = name;
+    public void setPrimaryCatalogId(String primaryCatalogId) {
+        this.mPrimaryCatalogId = primaryCatalogId;
+    }
+
+    public String getSecondaryCatalogId() {
+        return mSecondaryCatalogId;
+    }
+
+    public void setSecondaryCatalogId(String secondaryCatalogId) {
+        this.mSecondaryCatalogId = secondaryCatalogId;
+    }
+
+    public String getMinorCatalogId() {
+        return mMinorCatalogId;
+    }
+
+    public void setMinorCatalogId(String minorCatalogId) {
+        this.mMinorCatalogId = minorCatalogId;
     }
 
     public ItemDetail getItemDetail() {
@@ -46,8 +66,10 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "mItemId='" + mItemId + '\'' +
-                ", mCatalogId='" + mCatalogId + '\'' +
-                ", mName='" + mName + '\'' +
+                ", mExhibitorId='" + mExhibitorId + '\'' +
+                ", mPrimaryCatalogId='" + mPrimaryCatalogId + '\'' +
+                ", mSecondaryCatalogId='" + mSecondaryCatalogId + '\'' +
+                ", mMinorCatalogId='" + mMinorCatalogId + '\'' +
                 ", mItemDetail=" + mItemDetail +
                 '}';
     }

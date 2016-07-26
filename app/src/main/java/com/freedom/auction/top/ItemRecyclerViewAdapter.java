@@ -28,6 +28,19 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
         mListener = listener;
     }
 
+    public void setItemList(List<Item> itemList) {
+        this.mItemList = itemList;
+    }
+
+    public void replaceData(List<Item> itemList, boolean isSwipe) {
+        if (isSwipe) {
+            setItemList(itemList);
+        } else {
+            mItemList.addAll(itemList);
+        }
+        notifyDataSetChanged();
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_top_item_detail, parent, false);
@@ -41,7 +54,7 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
         if (!TextUtils.isEmpty(imageIcon)) {
             holder.mImageView.setImageResource(Integer.valueOf(imageIcon));
         }
-        holder.mNameView.setText(mItemList.get(position).getName());
+        holder.mNameView.setText(mItemList.get(position).getItemDetail().getName());
         holder.mPriceView.setText(mItemList.get(position).getItemDetail().getPrice());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -75,18 +88,5 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
             mNameView = (TextView) view.findViewById(R.id.tv_item_name);
             mPriceView = (TextView) view.findViewById(R.id.tv_item_price);
         }
-    }
-
-    public void replaceData(List<Item> itemList, boolean isSwipe) {
-        if (isSwipe) {
-            setItemList(itemList);
-        } else {
-            mItemList.addAll(itemList);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void setItemList(List<Item> itemList) {
-        this.mItemList = itemList;
     }
 }

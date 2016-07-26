@@ -28,11 +28,11 @@ public class RemoteItemDataSource implements ItemDataSource {
     }
 
     @Override
-    public void getItemsByCatalogId(@NonNull String catalogId, @NonNull int start,
+    public void getItemsByPrimaryCatalogId(@NonNull String primaryCatalogId, @NonNull int start,
                                     @NonNull int end, @NonNull BaseListener<ItemRes> listener) {
 
         // TODO
-        String url = "/items/catalog/" + catalogId + "/" + start + "/" + end;
+        String url = "/items/primaryCatalogId/" + primaryCatalogId + "/" + start + "/" + end;
 
         new HttpGetAsyncTask<ItemRes>(listener, ItemRes.class).execute(url);
 

@@ -8,8 +8,8 @@ public interface ItemDataSource {
 
     void getCatalogs(@NonNull BaseListener<CatalogRes> listener);
 
-    void getItemsByCatalogId(@NonNull String catalogId, @NonNull int start,
-                             @NonNull int end, @NonNull BaseListener<ItemRes> listener);
+    void getItemsByPrimaryCatalogId(@NonNull String primaryCatalogId, @NonNull int start,
+                                    @NonNull int end, @NonNull BaseListener<ItemRes> listener);
 
     void getItemDetail(@NonNull String itemId, @NonNull BaseListener<ItemRes> listener);
 

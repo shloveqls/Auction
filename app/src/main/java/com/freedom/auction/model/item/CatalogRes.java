@@ -45,85 +45,85 @@ public class CatalogRes extends Res {
         List<Catalog> catalogs = new ArrayList<>();
 
         Catalog catalog1 = new Catalog();
-        catalog1.setCatalogId("2");
+        catalog1.setPrimaryCatalogId("2");
         catalog1.setName("メンズ");
         catalog1.setDisplayOrder("2");
         catalogs.add(catalog1);
 
         Catalog catalog2 = new Catalog();
-        catalog2.setCatalogId("1");
+        catalog2.setPrimaryCatalogId("1");
         catalog2.setName("すべて");
         catalog2.setDisplayOrder("1");
         catalogs.add(catalog2);
 
         Catalog catalog3 = new Catalog();
-        catalog3.setCatalogId("3");
+        catalog3.setPrimaryCatalogId("3");
         catalog3.setName("レディース");
         catalog3.setDisplayOrder("3");
         catalogs.add(catalog3);
 
         Catalog catalog4 = new Catalog();
-        catalog4.setCatalogId("4");
+        catalog4.setPrimaryCatalogId("4");
         catalog4.setName("ベビー・キッズ");
         catalog4.setDisplayOrder("4");
         catalogs.add(catalog4);
 
         Catalog catalog5 = new Catalog();
-        catalog5.setCatalogId("5");
+        catalog5.setPrimaryCatalogId("5");
         catalog5.setName("インテリア・雑貨");
         catalog5.setDisplayOrder("5");
         catalogs.add(catalog5);
 
         Catalog catalog6 = new Catalog();
-        catalog6.setCatalogId("6");
+        catalog6.setPrimaryCatalogId("6");
         catalog6.setName("コスメ・美容");
         catalog6.setDisplayOrder("6");
         catalogs.add(catalog6);
 
         Catalog catalog7 = new Catalog();
-        catalog7.setCatalogId("7");
+        catalog7.setPrimaryCatalogId("7");
         catalog7.setName("ハンドメイド");
         catalog7.setDisplayOrder("7");
         catalogs.add(catalog7);
 
         Catalog catalog8 = new Catalog();
-        catalog8.setCatalogId("8");
+        catalog8.setPrimaryCatalogId("8");
         catalog8.setName("チケット");
         catalog8.setDisplayOrder("8");
         catalogs.add(catalog8);
 
         Catalog catalog9 = new Catalog();
-        catalog9.setCatalogId("9");
+        catalog9.setPrimaryCatalogId("9");
         catalog9.setName("その他");
         catalog9.setDisplayOrder("9");
         catalogs.add(catalog9);
 
         Catalog catalog10 = new Catalog();
-        catalog10.setCatalogId("10");
+        catalog10.setPrimaryCatalogId("10");
         catalog10.setName("自動車・オートバイ");
         catalog10.setDisplayOrder("10");
         catalogs.add(catalog10);
 
         Catalog catalog11 = new Catalog();
-        catalog11.setCatalogId("11");
+        catalog11.setPrimaryCatalogId("11");
         catalog11.setName("スポーツ・レジャー");
         catalog11.setDisplayOrder("11");
         catalogs.add(catalog11);
 
         Catalog catalog12 = new Catalog();
-        catalog12.setCatalogId("12");
+        catalog12.setPrimaryCatalogId("12");
         catalog12.setName("スポーツ・レジャー");
         catalog12.setDisplayOrder("12");
         catalogs.add(catalog12);
 
         Catalog catalog13 = new Catalog();
-        catalog13.setCatalogId("13");
+        catalog13.setPrimaryCatalogId("13");
         catalog13.setName("家電・スマホ");
         catalog13.setDisplayOrder("13");
         catalogs.add(catalog13);
 
         Catalog catalog14 = new Catalog();
-        catalog14.setCatalogId("14");
+        catalog14.setPrimaryCatalogId("14");
         catalog14.setName("エンタメ");
         catalog14.setDisplayOrder("14");
         catalogs.add(catalog14);
@@ -141,9 +141,9 @@ public class CatalogRes extends Res {
         for (int i = 1; i <= count; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("1");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("1");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items1.add(item);
@@ -154,9 +154,9 @@ public class CatalogRes extends Res {
         for (int i = count + 1; i <= count * 2; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("2");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("2");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             if (i % 2 == 0) {
                 itemDetail.setImageIcon(String.valueOf(R.drawable.ic_item_sample_1));
@@ -174,9 +174,9 @@ public class CatalogRes extends Res {
         for (int i = count * 2 + 1; i <= count * 3; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("3");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("3");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items3.add(item);
@@ -187,9 +187,9 @@ public class CatalogRes extends Res {
         for (int i = count * 3 + 1; i <= count * 4; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("4");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("4");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items4.add(item);
@@ -200,9 +200,9 @@ public class CatalogRes extends Res {
         for (int i = count * 4 + 1; i <= count * 5; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("5");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("5");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items5.add(item);
@@ -213,9 +213,9 @@ public class CatalogRes extends Res {
         for (int i = count * 5 + 1; i <= count * 6; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("6");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("6");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items6.add(item);
@@ -226,9 +226,9 @@ public class CatalogRes extends Res {
         for (int i = count * 6 + 1; i <= count * 7; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("7");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("7");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items7.add(item);
@@ -239,9 +239,9 @@ public class CatalogRes extends Res {
         for (int i = count * 7 + 1; i <= count * 8; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("8");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("8");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items8.add(item);
@@ -252,9 +252,9 @@ public class CatalogRes extends Res {
         for (int i = count * 8 + 1; i <= count * 9; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("9");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("9");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items9.add(item);
@@ -265,9 +265,9 @@ public class CatalogRes extends Res {
         for (int i = count * 9 + 1; i <= count * 10; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("10");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("10");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items10.add(item);
@@ -278,9 +278,9 @@ public class CatalogRes extends Res {
         for (int i = count * 10 + 1; i <= count * 11; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("11");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("11");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items11.add(item);
@@ -291,9 +291,9 @@ public class CatalogRes extends Res {
         for (int i = count * 11 + 1; i <= count * 12; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("12");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("12");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items12.add(item);
@@ -304,9 +304,9 @@ public class CatalogRes extends Res {
         for (int i = count * 12 + 1; i <= count * 13; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("13");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("13");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items13.add(item);
@@ -317,9 +317,9 @@ public class CatalogRes extends Res {
         for (int i = count * 14 + 1; i <= count * 15; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i));
-            item.setCatalogId("14");
-            item.setName("Item" + i);
+            item.setPrimaryCatalogId("14");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i);
             itemDetail.setPrice("¥" + i * 100);
             item.setItemDetail(itemDetail);
             items14.add(item);

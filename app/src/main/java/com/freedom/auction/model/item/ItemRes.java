@@ -35,9 +35,9 @@ public class ItemRes extends Res {
         for (int i = count * 15 + 1; i <= count * 16; i++) {
             Item item = new Item();
             item.setItemId(String.valueOf(i * 10000));
-            item.setCatalogId("1");
-            item.setName("Item" + i * 10000);
+            item.setPrimaryCatalogId("1");
             ItemDetail itemDetail = new ItemDetail();
+            itemDetail.setName("Item" + i * 10000);
             itemDetail.setPrice("¥" + i * 10000 * 100);
             if (i % 2 == 0) {
                 itemDetail.setImageIcon(String.valueOf(R.drawable.ic_item_sample_1));
